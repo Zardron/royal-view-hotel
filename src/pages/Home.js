@@ -7,9 +7,11 @@ import Projects from "../components/Slider/Projects";
 import { useContext } from "react";
 import { RoomContext } from "../context/RoomContext";
 import { SpinnerDotted } from "spinners-react";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
   const { show, loading } = useContext(RoomContext);
+  const { t } = useTranslation(["home"]);
 
   return (
     <>
@@ -24,7 +26,7 @@ const Home = () => {
         <div className="container mx-auto max-w-[1280px]">
           <hr />
           <h2 className="font-primary text-[36px] lg:text-[45px] mb-4">
-            Room & Suite
+            {t("home")}
           </h2>
         </div>
         <div className="container mx-auto relative">

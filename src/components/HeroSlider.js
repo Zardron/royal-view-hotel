@@ -11,6 +11,7 @@ import Img1 from "../assets/img/heroSlider/Slider/1.jpg";
 import Img2 from "../assets/img/heroSlider/Slider/2.jpg";
 import Img3 from "../assets/img/heroSlider/Slider/3.jpg";
 import Img4 from "../assets/img/heroSlider/Slider/4.jpg";
+import { useTranslation } from "react-i18next";
 
 const slides = [
   {
@@ -36,6 +37,8 @@ const slides = [
 ];
 
 const HeroSlider = () => {
+  const { t } = useTranslation(["common"]);
+
   return (
     <Swiper
       modules={[EffectFade, Autoplay]}
@@ -50,10 +53,10 @@ const HeroSlider = () => {
       <p className="text-white absolute top-[20%] left-1/2 h-full w-full z-50">
         <div class="content hidden lg:block">
           <h2 className="font-tertiary font-bold tracking-[6px]">
-            ROYAL VIEW HOTEL
+            {t("royalviewhotel")}
           </h2>
           <h2 className="font-tertiary font-bold tracking-[6px]">
-            ROYAL VIEW HOTEL
+            {t("royalviewhotel")}
           </h2>
         </div>
       </p>

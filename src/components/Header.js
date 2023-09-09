@@ -5,12 +5,41 @@ import LogoDark from "../assets/img/logo-orig.png";
 import Logo from "../assets/img/logo.png";
 import LogoW from "../assets/img/logoW.png";
 
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+
+import ReactFlagsSelect from "react-flags-select";
+
+import "./flags.css";
+
 const Header = () => {
   const [header, setHeader] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       window.scrollY > 50 ? setHeader(true) : setHeader(false);
     });
+  }, []);
+
+  const { i18n, t } = useTranslation(["common"]);
+  const [select, setSelect] = useState("US");
+  const onSelect = (code) => {
+    setSelect(code);
+
+    if (code === "US") {
+      i18n.changeLanguage("en");
+    }
+    if (code === "AE") {
+      i18n.changeLanguage("ar");
+    }
+    if (code === "RU") {
+      i18n.changeLanguage("ru");
+    }
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("i18nextLng")?.length > 2) {
+      i18next.changeLanguage("en");
+    }
   }, []);
 
   return (
@@ -59,20 +88,40 @@ const Header = () => {
           } flex gap-x-4 mb-4 lg:mb-0 font-tertiary tracking-[3px] text-[15px] font-regular items-center uppercase lg:gap-x-8`}
         >
           <a href="/" className="hover:text-accent transition">
-            Home
+            {t("home")}
           </a>
           <a href="/" className="hover:text-accent transition">
-            Rooms
+            {t("rooms")}
           </a>
           <a href="/" className="hover:text-accent transition">
-            Restaurant
+            {t("restaurant")}
           </a>
           <a href="/" className="hover:text-accent transition">
-            Spa
+            {t("spa")}
           </a>
           <a href="/" className="hover:text-accent transition">
-            Contact
+            {t("contact")}
           </a>
+          <ReactFlagsSelect
+            selected={select}
+            onSelect={onSelect}
+            countries={["US", "AE", "RU"]}
+            customLabels={{
+              US: "ENGLISH",
+              AE: "ARABIC",
+              RU: "RUSSIAN",
+            }}
+            /*showSelectedLabel={showSelectedLabel}
+        selectedSize={selectedSize}
+        showOptionLabel={showOptionLabel}
+        optionsSize={optionsSize}
+        placeholder={placeholder}
+        searchable={searchable}
+        searchPlaceholder={searchPlaceholder}
+        alignOptionsToRight={alignOptionsToRight}
+        fullWidth={fullWidth}
+        disabled={disabled} */
+          />
         </nav>
       </div>
     </header>

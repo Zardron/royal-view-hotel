@@ -25,8 +25,8 @@ const Home = () => {
       <div className="bg-[#eceff3]">
         <div className="container mx-auto max-w-[1280px]">
           <hr />
-          <h2 className="font-primary text-[36px] lg:text-[45px] mb-4">
-            {t("home")}
+          <h2 className="font-primary text-[36px] lg:text-[45px] mb-4 p-2">
+            {t("booknow")}
           </h2>
         </div>
         <div className="container mx-auto relative">

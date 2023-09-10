@@ -5,12 +5,15 @@ import App from "./App";
 import RoomProvider from "./context/RoomContext";
 
 import "./i18n";
+import { BrowserRouter } from "react-router-dom/dist";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <RoomProvider>
     <React.StrictMode>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </React.StrictMode>
   </RoomProvider>
 );

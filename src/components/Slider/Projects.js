@@ -2,22 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import SliderComp from "./Slider";
 import { Zoom } from "react-awesome-reveal";
+import { useTranslation } from "react-i18next";
 
 const Projects = () => {
+  const { t } = useTranslation(["home"]);
+
   return (
     <Container id="project">
       <Zoom>
         <h1 className="text-accent font-tertiary text-4xl lg:mb-6 lg:text-[68px] font-bold">
-          Welcome to <span className="green ">Royal View Hotel</span>
+          {t("welcometo")} <span className="green ">{t("royalviewhotel")}</span>
         </h1>
-        <p className="font-tertiary text-lg lg:text-[20px]">
-          Royal View Hotel is a premier hotel located in the heart of the city.
-          We offer luxurious accommodations, exceptional dining experiences, and
-          a wide range of amenities to ensure a memorable stay for our guests.
-          With our convenient online booking system, you can easily reserve your
-          room and enjoy a hassle-free check-in process. Experience the best of
-          hospitality at Royal View Hotel.
-        </p>
+        <p className="font-tertiary text-lg lg:text-[20px]">{t("aboutrvh")}</p>
       </Zoom>
       <Slide>
         <SliderComp />

@@ -70,13 +70,13 @@ const HeroSlider = () => {
           >
             <div className="z-20 text-white text-center">
               <div className="pt-12 lg:pt-0 lg:text-2xl uppercase font-tertiary tracking-[6px] mb-5">
-                Just Enjoy & Relax
+                {t("justenjoyandrelax")}
               </div>
               <h1 className="text-[22px] font-primary uppercase tracking-[2px] max-w-[1080px] lg:leading-[80px] lg:text-[48px] mb-6">
-                <h2 class="gradient-heading">{title}</h2>
+                <h2 class="gradient-heading">{t("tagline")}</h2>
               </h1>
               <button className="btn btn-lg btn-primary mx-auto">
-                {btnText}
+                {t("seeourrooms")}
               </button>
             </div>
             <div className="absolute top-0 h-full w-full">

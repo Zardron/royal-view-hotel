@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-import LogoWhite from "../assets/img/logo-white.png";
 import LogoDark from "../assets/img/logo-orig.png";
 import Logo from "../assets/img/logo.png";
-import LogoW from "../assets/img/logoW.png";
 
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 
 import ReactFlagsSelect from "react-flags-select";
+import { Link } from "react-router-dom";
 
 import "./flags.css";
 
@@ -50,7 +49,7 @@ const Header = () => {
     >
       <div className="container mx-auto flex flex-col items-center gap-y-2 lg:flex-row lg:justify-between lg:gap-y-0">
         {/* Logo */}
-        <a href="/">
+        <Link to="/">
           {header ? (
             <>
               <div>
@@ -80,30 +79,36 @@ const Header = () => {
               </div>
             </>
           )}
-        </a>
+        </Link>
         {/* Nav */}
         <nav
           className={`${
             header ? "text-primary" : "text-white"
           } flex gap-x-4 mb-4 lg:mb-0 font-tertiary tracking-[3px] text-[15px] font-regular items-center uppercase lg:gap-x-8`}
         >
-          <a href="/" className="hover:text-accent transition">
+          <Link to="/" className="hover:text-accent transition">
             {t("home")}
-          </a>
-          <a href="/" className="hover:text-accent transition">
+          </Link>
+          <Link to="/our-rooms" className="hover:text-accent transition">
             {t("rooms")}
-          </a>
-          <a href="/" className="hover:text-accent transition">
+          </Link>
+          <Link to="/" className="hover:text-accent transition">
             {t("restaurant")}
-          </a>
-          <a href="/" className="hover:text-accent transition">
+          </Link>
+          <Link to="/" className="hover:text-accent transition">
             {t("spa")}
-          </a>
-          <a href="/" className="hover:text-accent transition">
+          </Link>
+          <Link to="/" className="hover:text-accent transition">
             {t("contact")}
-          </a>
+          </Link>
           <ReactFlagsSelect
-            selected={select}
+            selected={
+              localStorage.getItem("i18nextLng") === "en"
+                ? "US"
+                : localStorage.getItem("i18nextLng") === "ru"
+                ? "RU"
+                : "AE"
+            }
             onSelect={onSelect}
             countries={["US", "AE", "RU"]}
             customLabels={{

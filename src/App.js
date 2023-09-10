@@ -7,24 +7,18 @@ import Home from "./pages/Home";
 import RoomDetails from "./pages/RoomDetails";
 
 // React Router
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/room/:id",
-    element: <RoomDetails />,
-  },
-]);
+import { Route, Routes } from "react-router-dom/dist";
+import OurRooms from "./pages/OurRooms";
 
 const App = () => {
   return (
     <div>
       <Header />
-      <RouterProvider router={router} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/room/:id" element={<RoomDetails />} />
+        <Route path="/our-rooms" element={<OurRooms />} />
+      </Routes>
       <Footer />
     </div>
   );

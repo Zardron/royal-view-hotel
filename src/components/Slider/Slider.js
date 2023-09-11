@@ -120,21 +120,19 @@ const SliderComp = () => {
   let sliderProject = "";
   sliderProject = data.map((item, i) => <Project item={item} key={i} />);
   return (
-    <Zoom>
-      <Container>
-        <Slider ref={arrowRef} {...settings}>
-          {sliderProject}
-        </Slider>
-        <Buttons>
-          <button onClick={() => arrowRef.current.slickPrev()} className="back">
-            <IoIosArrowBack />
-          </button>
-          <button onClick={() => arrowRef.current.slickNext()} className="next">
-            <IoIosArrowForward />
-          </button>
-        </Buttons>
-      </Container>
-    </Zoom>
+    <Container>
+      <Slider ref={arrowRef} {...settings}>
+        {sliderProject}
+      </Slider>
+      <Buttons>
+        <button onClick={() => arrowRef.current.slickPrev()} className="back">
+          <IoIosArrowBack />
+        </button>
+        <button onClick={() => arrowRef.current.slickNext()} className="next">
+          <IoIosArrowForward />
+        </button>
+      </Buttons>
+    </Container>
   );
 };
 

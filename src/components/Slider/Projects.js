@@ -9,15 +9,11 @@ const Projects = () => {
 
   return (
     <Container id="project">
-      <Zoom>
-        <h1 className="text-accent font-tertiary text-4xl lg:mb-6 lg:text-[68px] font-bold">
-          {t("welcometo")} <span className="green ">{t("royalviewhotel")}</span>
-        </h1>
-        <p className="font-tertiary text-lg lg:text-[20px]">{t("aboutrvh")}</p>
-      </Zoom>
-      <Slide>
-        <SliderComp />
-      </Slide>
+      <h1 className="text-accent font-tertiary text-4xl lg:mb-6 lg:text-[68px] font-bold">
+        {t("welcometo")} <span className="green ">{t("royalviewhotel")}</span>
+      </h1>
+      <p className="font-tertiary text-lg lg:text-[20px]">{t("aboutrvh")}</p>
+      <SliderComp />
     </Container>
   );
 };

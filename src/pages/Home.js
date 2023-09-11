@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { RoomContext } from "../context/RoomContext";
 import { SpinnerDotted } from "spinners-react";
 import { useTranslation } from "react-i18next";
+import HomeContent from "../components/HomeContent";
 
 const Home = () => {
   const { show, loading } = useContext(RoomContext);
@@ -22,7 +23,8 @@ const Home = () => {
       )}
       <HeroSlider />
       <Projects />
-      <div className="bg-[#eceff3]">
+      <HomeContent />
+      {/* <div className="bg-[#eceff3]">
         <div className="container mx-auto max-w-[1280px]">
           <hr />
           <h2 className="font-primary text-[36px] lg:text-[45px] mb-4 p-2">
@@ -35,7 +37,7 @@ const Home = () => {
           </div>
           {show && <Rooms />}
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

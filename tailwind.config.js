@@ -27,6 +27,8 @@ module.exports = {
       },
       backgroundImage: {
         room: "url('./assets/img/room.jpg')",
+        gallery:
+          "url('https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1018,h=584,fit=crop,trim=212.2850122850123;116.2684124386252;149.38574938574936;204.25531914893617/YyvXe0ZbvlcB1644/img_0645-3-mP4P68JppXfX11yQ.jpg')",
       },
     },
   },

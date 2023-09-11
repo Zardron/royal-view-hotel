@@ -9,6 +9,8 @@ import RoomDetails from "./pages/RoomDetails";
 // React Router
 import { Route, Routes } from "react-router-dom/dist";
 import OurRooms from "./pages/OurRooms";
+import Gallery from "./pages/Gallery";
+import SubFooter from "./components/SubFooter";
 
 const App = () => {
   return (
@@ -18,7 +20,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/room/:id" element={<RoomDetails />} />
         <Route path="/our-rooms" element={<OurRooms />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
+      <SubFooter />
       <Footer />
     </div>
   );

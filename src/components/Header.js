@@ -86,7 +86,7 @@ const Header = () => {
             header ? "text-primary" : "text-white"
           } flex gap-x-4 mb-4 lg:mb-0 font-tertiary tracking-[3px] text-[15px] font-regular items-center uppercase lg:gap-x-8`}
         >
-          <Link to="/" className="hover:text-accent transition">
+          <Link to="/" className="hover:text-accent transition font">
             {t("home")}
           </Link>
           <Link to="/our-rooms" className="hover:text-accent transition">
@@ -95,8 +95,8 @@ const Header = () => {
           <Link to="/" className="hover:text-accent transition">
             {t("restaurant")}
           </Link>
-          <Link to="/" className="hover:text-accent transition">
-            {t("spa")}
+          <Link to="/gallery" className="hover:text-accent transition">
+            {t("gallery")}
           </Link>
           <Link to="/" className="hover:text-accent transition">
             {t("contact")}

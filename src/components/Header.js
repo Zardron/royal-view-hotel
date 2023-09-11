@@ -92,13 +92,13 @@ const Header = () => {
           <Link to="/our-rooms" className="hover:text-accent transition">
             {t("rooms")}
           </Link>
-          <Link to="/" className="hover:text-accent transition">
-            {t("restaurant")}
-          </Link>
           <Link to="/gallery" className="hover:text-accent transition">
             {t("gallery")}
           </Link>
-          <Link to="/" className="hover:text-accent transition">
+          <Link to="/about" className="hover:text-accent transition">
+            {t("about")}
+          </Link>
+          <Link to="/contact" className="hover:text-accent transition">
             {t("contact")}
           </Link>
           <ReactFlagsSelect

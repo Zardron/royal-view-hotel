@@ -1,7 +1,5 @@
 import React from "react";
 // Components
-import Rooms from "../components/Rooms";
-import BookForm from "../components/BookForm";
 import HeroSlider from "../components/HeroSlider";
 import Projects from "../components/Slider/Projects";
 import { useContext } from "react";
@@ -11,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import HomeContent from "../components/HomeContent";
 
 const Home = () => {
-  const { show, loading } = useContext(RoomContext);
+  const { loading } = useContext(RoomContext);
   const { t } = useTranslation(["home"]);
 
   return (

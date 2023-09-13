@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Scroll To Top Component
 import ScrollToTop from "../components/ScrollToTop";
@@ -8,6 +8,7 @@ import { SlSizeActual } from "react-icons/sl";
 import { PiMountainsFill } from "react-icons/pi";
 import { FaCheck, FaCity, FaCocktail, FaSnowflake } from "react-icons/fa";
 import { MdOutlineScreenshotMonitor } from "react-icons/md";
+import axios from "axios";
 
 const deluxeKingRoom = [
   {
@@ -102,7 +103,18 @@ const standardDoubleRoom = [
 ];
 
 const OurRooms = () => {
-  const [imageSrc, setImageSrc] = useState(deluxeKingRoom[0].src);
+  const [roomData, setRoomData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/room/")
+      .then((result) => {
+        setRoomData(result.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  const [imageSrc, setImageSrc] = useState();
   const [isActiveIndex, setActiveIndex] = useState(0);
 
   const handleSelectedImage = (src, activeIndex) => {
@@ -155,18 +167,20 @@ const OurRooms = () => {
           <div className="bg-white shadow-2xl h-auto group p-4 mb-10">
             <div className="grid grid-cols-2">
               <div>
-                <h3 className="h3 text-4xl font-tertiary">Deluxe King Room</h3>
+                <h3 className="h3 text-4xl font-tertiary">
+                  {roomData[0]?.roomName}
+                </h3>
                 <div className="overflow-hidden">
                   <img
                     className="transition-all duration-300 w-full h-[320px]"
-                    src={imageSrc}
+                    src={!imageSrc ? roomData[0]?.images[0]?.url : imageSrc}
                     alt="rooms"
                   />
                 </div>
                 <div className="bg-white shadow-lg lg:max-w-lg mx-auto h-auto p-2 -translate-y-[15%] flex justify-center items-center uppercase font-tertiary tracking-[1px] font-semibold text-base">
                   <div className="flex justify-between w-[100%]">
                     <div className="grid grid-cols-5 gap-[5px]">
-                      {deluxeKingRoom.map((data, index) => (
+                      {roomData[0]?.images?.map((item, index) => (
                         <img
                           key={index}
                           className={`w-[100px] h-[60px] cursor-pointer object-cover ${
@@ -174,9 +188,9 @@ const OurRooms = () => {
                               ? "border-4 border-[#2dadc9]"
                               : ""
                           }`}
-                          src={data.src}
+                          src={item.url}
                           alt="rooms"
-                          onClick={() => handleSelectedImage(data.src, index)}
+                          onClick={() => handleSelectedImage(item.url, index)}
                         />
                       ))}
                     </div>
@@ -184,215 +198,116 @@ const OurRooms = () => {
                 </div>
               </div>
               <div className="text-center">
-                <Link to={`/room/`}>
-                  {/* Amenities */}
-                  <div className="grid grid-cols-2 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
-                    <div className="flex flex-row items-center gap-x-2">
-                      <SlSizeActual size={20} />
-                      <span className="font-tertiary">
-                        25 m<sup>2</sup>
-                      </span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <GiSwan size={24} />
-                      <span className="font-tertiary">Lake View</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <PiMountainsFill size={24} />
-                      <span className="font-tertiary">Mountain View</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCity size={24} />
-                      <span className="font-tertiary">City View</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaSnowflake size={20} />
-                      <span className="font-tertiary">Air Condition</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <MdOutlineScreenshotMonitor size={24} />
-                      <span className="font-tertiary">Flatscreen TV</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCocktail size={22} />
-                      <span className="font-tertiary">Mini Bar</span>
-                    </div>
-                  </div>
+                {/* <Link to={`/room/`}> */}
+                {/* Amenities */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
+                  {roomData[0]?.roomDetails?.map((item, index) => (
+                    <>
+                      {item.name === "Lake View" && (
+                        <div className="flex flex-row items-center gap-x-2">
+                          <GiSwan size={24} />
+                          <span className="font-tertiary">Lake View</span>
+                        </div>
+                      )}
 
-                  <div className="flex flex-row items-center px-6 pt-4">
-                    <p className="text-lg font-tertiary font-semibold">
-                      Room Size:{" "}
-                      <span className="font-normal ml-2">
-                        25 m<sup>2</sup>
-                      </span>
-                    </p>
-                  </div>
+                      {item.name === "Mountain View" && (
+                        <div className="flex flex-row items-center gap-x-2">
+                          <PiMountainsFill size={24} />
+                          <span className="font-tertiary">Mountain View</span>
+                        </div>
+                      )}
 
-                  <div className="flex flex-row items-center px-6">
-                    <div className="text-lg font-tertiary text-justify">
-                      The air-conditioned double room features a flat-screen TV
-                      with cable channels, a mini-bar, a dining area, a wardrobe
-                      as well as lake views. The unit has 1 bed.
-                    </div>
-                  </div>
+                      {item.name === "City View" && (
+                        <div className="flex flex-row items-center gap-x-2">
+                          <FaCity size={24} />
+                          <span className="font-tertiary">City View</span>
+                        </div>
+                      )}
 
-                  <div className="flex flex-row items-center px-6 pt-4">
-                    <p className="text-lg font-tertiary font-semibold">
-                      In the bathroom:
-                    </p>
-                  </div>
+                      {item.name === "Air Condition" && (
+                        <div className="flex flex-row items-center gap-x-2">
+                          <FaSnowflake size={20} />
+                          <span className="font-tertiary">Air Condition</span>
+                        </div>
+                      )}
 
-                  <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Free toiletries</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Bathtub or shower</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Toilet</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Toilet paper</span>
-                    </div>
-                  </div>
+                      {item.name === "Flatscreen TV" && (
+                        <div className="flex flex-row items-center gap-x-2">
+                          <MdOutlineScreenshotMonitor size={24} />
+                          <span className="font-tertiary">Flatscreen TV</span>
+                        </div>
+                      )}
 
-                  <div className="flex flex-row items-center px-6 pt-4">
-                    <p className="text-lg font-tertiary font-semibold">View:</p>
-                  </div>
+                      {item.name === "Minibar" && (
+                        <div className="flex flex-row items-center gap-x-2">
+                          <FaCocktail size={22} />
+                          <span className="font-tertiary">Minibar</span>
+                        </div>
+                      )}
+                    </>
+                  ))}
+                </div>
 
-                  <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Lake views</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">City view</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Mountain view</span>
-                    </div>
-                  </div>
+                <div className="flex flex-row items-center px-6 pt-4">
+                  <p className="text-lg font-tertiary font-semibold">
+                    Room Size:{" "}
+                    <span className="font-normal ml-2">
+                      {roomData[0]?.roomSize} m<sup>2</sup>
+                    </span>
+                  </p>
+                </div>
 
-                  <div className="flex flex-row items-center px-6 pt-4">
-                    <p className="text-lg font-tertiary font-semibold">
-                      Room Facilities:
-                    </p>
+                <div className="flex flex-row items-center px-6">
+                  <div className="text-lg font-tertiary text-justify">
+                    The air-conditioned double room features a flat-screen TV
+                    with cable channels, a mini-bar, a dining area, a wardrobe
+                    as well as lake views. The unit has 1 bed.
                   </div>
+                </div>
 
-                  <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2 mb-4">
+                <div className="flex flex-row items-center px-6 pt-4">
+                  <p className="text-lg font-tertiary font-semibold">
+                    In the bathroom:
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
+                  {roomData[0]?.inBathroom?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Laptop safe</span>
+                      <span className="font-tertiary">{item.name}</span>
                     </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-row items-center px-6 pt-4">
+                  <p className="text-lg font-tertiary font-semibold">View:</p>
+                </div>
+
+                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
+                  {roomData[0]?.view?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">TV</span>
+                      <span className="font-tertiary">{item.name}</span>
                     </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-row items-center px-6 pt-4">
+                  <p className="text-lg font-tertiary font-semibold">
+                    Room Facilities:
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2 mb-4">
+                  {roomData[0]?.facilities?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Desk</span>
+                      <span className="font-tertiary">{item.name}</span>
                     </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Linens</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">
-                        Child safety socket covers
-                      </span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Minibar</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Safe</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Carpeted</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">
-                        Upper floors accessible by elevator
-                      </span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Electric kettle</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Flat-screen TV</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Telephone</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">
-                        Extra long beds (> 6.5 ft)
-                      </span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Cable channels</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Wake-up service</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Wardrobe or closet</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Cleaning products</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Towels</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Satellite channels</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">
-                        Entire unit wheelchair accessible
-                      </span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Air conditioning</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Socket near the bed</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Dining area</span>
-                    </div>
-                    <div className="flex flex-row items-center gap-x-2">
-                      <FaCheck size={16} className="font-thin" />
-                      <span className="font-tertiary">Clothes rack</span>
-                    </div>
-                  </div>
-                </Link>
+                  ))}
+                </div>
+                {/* </Link> */}
               </div>
             </div>
           </div>
@@ -403,8 +318,7 @@ const OurRooms = () => {
               <div>
                 <div className="flex flex-row">
                   <h3 className="h3 text-4xl font-tertiary">
-                    Deluxe Suite{" "}
-                    <span className="font-thin">(Private Suite)</span>
+                    {roomData[1]?.roomName}
                   </h3>
                 </div>
                 <div className="overflow-hidden">

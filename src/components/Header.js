@@ -20,7 +20,7 @@ const Header = () => {
   }, []);
 
   const { i18n, t } = useTranslation(["common"]);
-  const [select, setSelect] = useState("US");
+  const [setSelect] = useState("US");
   const onSelect = (code) => {
     setSelect(code);
 

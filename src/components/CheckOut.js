@@ -21,6 +21,7 @@ const CheckOut = () => {
         className="w-full h-full cursor-pointer font-tertiary tracking-[3px]"
         selected={endDate}
         placeholderText="Check Out"
+        minDate={new Date()}
         onChange={(date) => setEndDate(date)}
       />
     </div>

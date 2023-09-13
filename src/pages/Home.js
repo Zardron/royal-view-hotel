@@ -5,12 +5,12 @@ import Projects from "../components/Slider/Projects";
 import { useContext } from "react";
 import { RoomContext } from "../context/RoomContext";
 import { SpinnerDotted } from "spinners-react";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 import HomeContent from "../components/HomeContent";
 
 const Home = () => {
   const { loading } = useContext(RoomContext);
-  const { t } = useTranslation(["home"]);
+  // const { t } = useTranslation(["home"]);
 
   return (
     <>

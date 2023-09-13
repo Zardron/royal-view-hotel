@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import Project from "./Project";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import styled from "styled-components";
-import { Zoom } from "react-awesome-reveal";
 
 import slide1 from "../../assets/img/heroSlider/home-slider/1.avif";
 import slide2 from "../../assets/img/heroSlider/home-slider/2.avif";

@@ -62,7 +62,7 @@ const HeroSlider = () => {
       </p>
       {slides.map((slide, index) => {
         // Destructure Slide
-        const { title, bg, btnText } = slide;
+        const { bg } = slide;
         return (
           <SwiperSlide
             className="h-full relative flex justify-center items-center"

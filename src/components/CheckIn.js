@@ -9,6 +9,7 @@ import { BsCalendar } from "react-icons/bs";
 
 const CheckIn = () => {
   const [startDate, setStartDate] = useState(false);
+
   return (
     <div className="relative flex items-center justify-end h-full cursor-pointer">
       {/* Icon */}
@@ -21,6 +22,7 @@ const CheckIn = () => {
         className="w-full h-full cursor-pointer font-tertiary tracking-[3px]"
         selected={startDate}
         placeholderText="Check In"
+        minDate={new Date()}
         onChange={(date) => setStartDate(date)}
       />
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Img1 from "../../assets/img/heroSlider/1.avif";
+// import Img1 from "../../assets/img/heroSlider/1.avif";
 
 const Project = (props) => {
   const { img, disc } = props.item;
@@ -12,7 +12,7 @@ const Project = (props) => {
         <h1>Description</h1>
         <p>
           {disc}
-          <a href="#">demo</a>
+          {/* <a href="#">demo</a> */}
         </p>
       </div>
     </Container>

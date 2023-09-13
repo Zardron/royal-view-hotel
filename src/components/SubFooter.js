@@ -1,6 +1,5 @@
 import React from "react";
 // Logo
-import LogoDark from "../assets/img/logo-orig.png";
 
 const SubFooter = () => {
   return (
@@ -23,6 +22,7 @@ const SubFooter = () => {
             height="350"
             allowfullscreen=""
             loading="lazy"
+            title="aw"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>

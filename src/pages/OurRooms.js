@@ -73,7 +73,7 @@ const OurRooms = () => {
         <div className="max-w-sm mx-auto lg:max-w-none lg:mx-0 pb-10">
           {/* Deluxe King Room */}
           <div className="bg-white shadow-2xl h-auto group p-4 mb-10">
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
               <div>
                 <h3 className="h3 text-4xl font-tertiary">
                   {roomData[0]?.roomName}
@@ -112,7 +112,7 @@ const OurRooms = () => {
               <div className="text-center">
                 {/* <Link to={`/room/`}> */}
                 {/* Amenities */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
+                <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
                   {roomData[0]?.roomDetails?.map((item, index) => (
                     <>
                       {item.name === "Lake View" && (
@@ -183,7 +183,7 @@ const OurRooms = () => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2">
                   {roomData[0]?.inBathroom?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />
@@ -196,7 +196,7 @@ const OurRooms = () => {
                   <p className="text-lg font-tertiary font-semibold">View:</p>
                 </div>
 
-                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2">
                   {roomData[0]?.view?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />
@@ -211,7 +211,7 @@ const OurRooms = () => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2 mb-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2 mb-4">
                   {roomData[0]?.facilities?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />
@@ -226,7 +226,7 @@ const OurRooms = () => {
 
           {/* Deluxe Suite */}
           <div className="bg-white shadow-2xl h-auto group p-4 mb-10">
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
               <div>
                 <div className="flex flex-row">
                   <h3 className="h3 text-4xl font-tertiary">
@@ -267,7 +267,7 @@ const OurRooms = () => {
               <div className="text-center">
                 <Link to={`/room/`}>
                   {/* Amenities */}
-                  <div className="grid grid-cols-2 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
                     {roomData[1]?.roomDetails?.map((item, index) => (
                       <>
                         {item.name === "Lake View" && (
@@ -340,7 +340,7 @@ const OurRooms = () => {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2">
                     {roomData[1]?.inBathroom?.map((item) => (
                       <div className="flex flex-row items-center gap-x-2">
                         <FaCheck size={16} className="font-thin" />
@@ -353,7 +353,7 @@ const OurRooms = () => {
                     <p className="text-lg font-tertiary font-semibold">View:</p>
                   </div>
 
-                  <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2">
                     {roomData[1]?.view?.map((item) => (
                       <div className="flex flex-row items-center gap-x-2">
                         <FaCheck size={16} className="font-thin" />
@@ -368,7 +368,7 @@ const OurRooms = () => {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2">
                     {roomData[1]?.facilities?.map((item) => (
                       <div className="flex flex-row items-center gap-x-2">
                         <FaCheck size={16} className="font-thin" />
@@ -390,7 +390,7 @@ const OurRooms = () => {
 
           {/* Deluxe Twin Room */}
           <div className="bg-white shadow-2xl h-auto group p-4 mb-10">
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
               <div>
                 <h3 className="h3 text-4xl font-tertiary">
                   {roomData[2]?.roomName}
@@ -429,7 +429,7 @@ const OurRooms = () => {
               <div className="text-center">
                 {/* <Link to={`/room/`}> */}
                 {/* Amenities */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
+                <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
                   {roomData[2]?.roomDetails?.map((item, index) => (
                     <>
                       {item.name === "Lake View" && (
@@ -502,7 +502,7 @@ const OurRooms = () => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2">
                   {roomData[2]?.inBathroom?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />
@@ -515,7 +515,7 @@ const OurRooms = () => {
                   <p className="text-lg font-tertiary font-semibold">View:</p>
                 </div>
 
-                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2">
                   {roomData[2]?.view?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />
@@ -530,7 +530,7 @@ const OurRooms = () => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2 mb-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2 mb-4">
                   {roomData[2]?.facilities?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />
@@ -545,7 +545,7 @@ const OurRooms = () => {
 
           {/* Standard Double Room */}
           <div className="bg-white shadow-2xl h-auto group p-4">
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
               <div>
                 <h3 className="h3 text-4xl font-tertiary">
                   Standard Double Room
@@ -584,7 +584,7 @@ const OurRooms = () => {
               <div className="text-center">
                 {/* <Link to={`/room/`}> */}
                 {/* Amenities */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
+                <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
                   {roomData[3]?.roomDetails?.map((item, index) => (
                     <>
                       {item.name === "Lake View" && (
@@ -657,7 +657,7 @@ const OurRooms = () => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2">
                   {roomData[2]?.inBathroom?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />
@@ -670,7 +670,7 @@ const OurRooms = () => {
                   <p className="text-lg font-tertiary font-semibold">View:</p>
                 </div>
 
-                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2">
                   {roomData[2]?.view?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />
@@ -685,7 +685,7 @@ const OurRooms = () => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 justify-between gap-2 px-6 py-2 mb-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-2 px-6 py-2 mb-4">
                   {roomData[3]?.facilities?.map((item) => (
                     <div className="flex flex-row items-center gap-x-2">
                       <FaCheck size={16} className="font-thin" />

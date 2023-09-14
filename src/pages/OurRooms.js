@@ -3,10 +3,17 @@ import React, { useEffect, useState } from "react";
 // Scroll To Top Component
 import ScrollToTop from "../components/ScrollToTop";
 import { Link } from "react-router-dom/dist";
-import { GiShower, GiSwan } from "react-icons/gi";
-import { PiMountainsFill } from "react-icons/pi";
-import { FaCheck, FaCity, FaCocktail, FaSnowflake } from "react-icons/fa";
-import { MdOutlineScreenshotMonitor } from "react-icons/md";
+// import { GiShower, GiSwan } from "react-icons/gi";
+// import { PiMountainsFill } from "react-icons/pi";
+import {
+  FaCheck,
+  // FaCity,
+  // FaCocktail,
+  FaHandPointRight,
+  // FaSnowflake,
+} from "react-icons/fa";
+// import { AiTwotoneStar } from "react-icons/ai";
+// import { MdOutlineScreenshotMonitor } from "react-icons/md";
 import axios from "axios";
 import BookForm from "../components/BookForm";
 
@@ -15,7 +22,7 @@ const OurRooms = () => {
 
   useEffect(() => {
     axios
-      .get("https://rvh-backend.vercel.app/api/room/")
+      .get("http://localhost:5000/api/room/")
       .then((result) => {
         setRoomData(result.data);
       })
@@ -112,51 +119,25 @@ const OurRooms = () => {
               <div className="text-center">
                 {/* <Link to={`/room/`}> */}
                 {/* Amenities */}
-                <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
+                <div className="flex flex-row items-center px-6 pt-10">
+                  <p className="text-lg font-tertiary font-semibold">
+                    Room Overview:
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2">
                   {roomData[0]?.roomDetails?.map((item, index) => (
-                    <>
-                      {item.name === "Lake View" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <GiSwan size={24} />
-                          <span className="font-tertiary">Lake View</span>
-                        </div>
-                      )}
-
-                      {item.name === "Mountain View" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <PiMountainsFill size={24} />
-                          <span className="font-tertiary">Mountain View</span>
-                        </div>
-                      )}
-
-                      {item.name === "City View" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <FaCity size={24} />
-                          <span className="font-tertiary">City View</span>
-                        </div>
-                      )}
-
-                      {item.name === "Air Condition" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <FaSnowflake size={20} />
-                          <span className="font-tertiary">Air Condition</span>
-                        </div>
-                      )}
-
-                      {item.name === "Flatscreen TV" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <MdOutlineScreenshotMonitor size={24} />
-                          <span className="font-tertiary">Flatscreen TV</span>
-                        </div>
-                      )}
-
-                      {item.name === "Minibar" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <FaCocktail size={22} />
-                          <span className="font-tertiary">Minibar</span>
-                        </div>
-                      )}
-                    </>
+                    <div className="flex flex-row items-center gap-x-2">
+                      <FaHandPointRight size={24} />
+                      <span
+                        className={`font-tertiary ${
+                          item.name === "Private Bathroom"
+                            ? "text-[14px]"
+                            : "text-[16px]"
+                        }`}
+                      >
+                        {item.name}
+                      </span>
+                    </div>
                   ))}
                 </div>
 
@@ -267,55 +248,25 @@ const OurRooms = () => {
               <div className="text-center">
                 <Link to={`/room/`}>
                   {/* Amenities */}
-                  <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
+                  <div className="flex flex-row items-center px-6 pt-10">
+                    <p className="text-lg font-tertiary font-semibold">
+                      Room Overview:
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2">
                     {roomData[1]?.roomDetails?.map((item, index) => (
-                      <>
-                        {item.name === "Lake View" && (
-                          <div className="flex flex-row items-center gap-x-2">
-                            <GiSwan size={24} />
-                            <span className="font-tertiary">Lake View</span>
-                          </div>
-                        )}
-                        {item.name === "Mountain View" && (
-                          <div className="flex flex-row items-center gap-x-2">
-                            <PiMountainsFill size={24} />
-                            <span className="font-tertiary">Mountain View</span>
-                          </div>
-                        )}
-                        {item.name === "City View" && (
-                          <div className="flex flex-row items-center gap-x-2">
-                            <FaCity size={24} />
-                            <span className="font-tertiary">City View</span>
-                          </div>
-                        )}
-                        {item.name === "Air Condition" && (
-                          <div className="flex flex-row items-center gap-x-2">
-                            <FaSnowflake size={20} />
-                            <span className="font-tertiary">Air Condition</span>
-                          </div>
-                        )}
-                        {item.name === "Private Bathroom" && (
-                          <div className="flex flex-row items-center gap-x-2">
-                            <GiShower size={20} />
-                            <span className="font-tertiary text-[14px]">
-                              Private Bathroom
-                            </span>
-                          </div>
-                        )}
-
-                        {item.name === "Flatscreen TV" && (
-                          <div className="flex flex-row items-center gap-x-2">
-                            <MdOutlineScreenshotMonitor size={24} />
-                            <span className="font-tertiary">Flatscreen TV</span>
-                          </div>
-                        )}
-                        {item.name === "Minibar" && (
-                          <div className="flex flex-row items-center gap-x-2">
-                            <FaCocktail size={22} />
-                            <span className="font-tertiary">Minibar</span>
-                          </div>
-                        )}
-                      </>
+                      <div className="flex flex-row items-center gap-x-2">
+                        <FaHandPointRight size={24} />
+                        <span
+                          className={`font-tertiary ${
+                            item.name === "Private Bathroom"
+                              ? "text-[14px]"
+                              : "text-[16px]"
+                          }`}
+                        >
+                          {item.name}
+                        </span>
+                      </div>
                     ))}
                   </div>
 
@@ -428,56 +379,25 @@ const OurRooms = () => {
               </div>
               <div className="text-center">
                 {/* <Link to={`/room/`}> */}
-                {/* Amenities */}
-                <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
+                <div className="flex flex-row items-center px-6 pt-10">
+                  <p className="text-lg font-tertiary font-semibold">
+                    Room Overview:
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2">
                   {roomData[2]?.roomDetails?.map((item, index) => (
-                    <>
-                      {item.name === "Lake View" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <GiSwan size={24} />
-                          <span className="font-tertiary">Lake View</span>
-                        </div>
-                      )}
-                      {item.name === "Mountain View" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <PiMountainsFill size={24} />
-                          <span className="font-tertiary">Mountain View</span>
-                        </div>
-                      )}
-                      {item.name === "City View" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <FaCity size={24} />
-                          <span className="font-tertiary">City View</span>
-                        </div>
-                      )}
-                      {item.name === "Air Condition" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <FaSnowflake size={20} />
-                          <span className="font-tertiary">Air Condition</span>
-                        </div>
-                      )}
-                      {item.name === "Private Bathroom" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <GiShower size={20} />
-                          <span className="font-tertiary text-[14px]">
-                            Private Bathroom
-                          </span>
-                        </div>
-                      )}
-
-                      {item.name === "Flatscreen TV" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <MdOutlineScreenshotMonitor size={24} />
-                          <span className="font-tertiary">Flatscreen TV</span>
-                        </div>
-                      )}
-                      {item.name === "Minibar" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <FaCocktail size={22} />
-                          <span className="font-tertiary">Minibar</span>
-                        </div>
-                      )}
-                    </>
+                    <div className="flex flex-row items-center gap-x-2">
+                      <FaHandPointRight size={24} />
+                      <span
+                        className={`font-tertiary ${
+                          item.name === "Private Bathroom"
+                            ? "text-[14px]"
+                            : "text-[16px]"
+                        }`}
+                      >
+                        {item.name}
+                      </span>
+                    </div>
                   ))}
                 </div>
 
@@ -584,55 +504,25 @@ const OurRooms = () => {
               <div className="text-center">
                 {/* <Link to={`/room/`}> */}
                 {/* Amenities */}
-                <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2 pt-12">
+                <div className="flex flex-row items-center px-6 pt-10">
+                  <p className="text-lg font-tertiary font-semibold">
+                    Room Overview:
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-4 justify-between gap-2 px-6 py-2">
                   {roomData[3]?.roomDetails?.map((item, index) => (
-                    <>
-                      {item.name === "Lake View" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <GiSwan size={24} />
-                          <span className="font-tertiary">Lake View</span>
-                        </div>
-                      )}
-                      {item.name === "Mountain View" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <PiMountainsFill size={24} />
-                          <span className="font-tertiary">Mountain View</span>
-                        </div>
-                      )}
-                      {item.name === "City View" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <FaCity size={24} />
-                          <span className="font-tertiary">City View</span>
-                        </div>
-                      )}
-                      {item.name === "Air Condition" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <FaSnowflake size={20} />
-                          <span className="font-tertiary">Air Condition</span>
-                        </div>
-                      )}
-                      {item.name === "Private Bathroom" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <GiShower size={20} />
-                          <span className="font-tertiary text-[14px]">
-                            Private Bathroom
-                          </span>
-                        </div>
-                      )}
-
-                      {item.name === "Flatscreen TV" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <MdOutlineScreenshotMonitor size={24} />
-                          <span className="font-tertiary">Flatscreen TV</span>
-                        </div>
-                      )}
-                      {item.name === "Minibar" && (
-                        <div className="flex flex-row items-center gap-x-2">
-                          <FaCocktail size={22} />
-                          <span className="font-tertiary">Minibar</span>
-                        </div>
-                      )}
-                    </>
+                    <div className="flex flex-row items-center gap-x-2">
+                      <FaHandPointRight size={24} />
+                      <span
+                        className={`font-tertiary ${
+                          item.name === "Private Bathroom"
+                            ? "text-[14px]"
+                            : "text-[16px]"
+                        }`}
+                      >
+                        {item.name}
+                      </span>
+                    </div>
                   ))}
                 </div>
 

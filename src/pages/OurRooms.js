@@ -19,6 +19,10 @@ import BookForm from "../components/BookForm";
 
 const OurRooms = () => {
   const [roomData, setRoomData] = useState([]);
+  const [checkInDate, setCheckInDate] = useState();
+  const [checkOutDate, setCheckOutDate] = useState();
+  const [adults, setAdults] = useState("1 Adult");
+  const [childrens, setChildrens] = useState("0 Children");
 
   useEffect(() => {
     axios
@@ -114,7 +118,18 @@ const OurRooms = () => {
                 <button type="submit" className="btn btn-primary py-4 w-full">
                   PRICE: {roomData[0]?.roomPrice}.00 AED PER NIGHT
                 </button>
-                <BookForm />
+                <BookForm
+                  checkInDate={checkInDate}
+                  checkOutDate={checkOutDate}
+                  setCheckInDate={setCheckInDate}
+                  setCheckOutDate={setCheckOutDate}
+                  adults={adults}
+                  setAdults={setAdults}
+                  childrens={childrens}
+                  setChildrens={setChildrens}
+                  roomPrice={roomData[0]?.roomPrice}
+                  roomId={roomData[0]?._id}
+                />
               </div>
               <div className="text-center">
                 {/* <Link to={`/room/`}> */}
@@ -243,7 +258,18 @@ const OurRooms = () => {
                 <button type="submit" className="btn btn-primary py-4 w-full">
                   PRICE: {roomData[1]?.roomPrice}.00 AED PER NIGHT
                 </button>
-                <BookForm />
+                <BookForm
+                  checkInDate={checkInDate}
+                  checkOutDate={checkOutDate}
+                  setCheckInDate={setCheckInDate}
+                  setCheckOutDate={setCheckOutDate}
+                  adults={adults}
+                  setAdults={setAdults}
+                  childrens={childrens}
+                  setChildrens={setChildrens}
+                  roomPrice={roomData[1]?.roomPrice}
+                  roomId={roomData[1]?._id}
+                />
               </div>
               <div className="text-center">
                 <Link to={`/room/`}>
@@ -375,7 +401,18 @@ const OurRooms = () => {
                 <button type="submit" className="btn btn-primary py-4 w-full">
                   PRICE: {roomData[2]?.roomPrice}.00 AED PER NIGHT
                 </button>
-                <BookForm />
+                <BookForm
+                  checkInDate={checkInDate}
+                  checkOutDate={checkOutDate}
+                  setCheckInDate={setCheckInDate}
+                  setCheckOutDate={setCheckOutDate}
+                  adults={adults}
+                  setAdults={setAdults}
+                  childrens={childrens}
+                  setChildrens={setChildrens}
+                  roomPrice={roomData[2]?.roomPrice}
+                  roomId={roomData[2]?._id}
+                />
               </div>
               <div className="text-center">
                 {/* <Link to={`/room/`}> */}
@@ -499,7 +536,18 @@ const OurRooms = () => {
                 <button type="submit" className="btn btn-primary py-4 w-full">
                   PRICE: {roomData[3]?.roomPrice}.00 AED PER NIGHT
                 </button>
-                <BookForm />
+                <BookForm
+                  checkInDate={checkInDate}
+                  checkOutDate={checkOutDate}
+                  setCheckInDate={setCheckInDate}
+                  setCheckOutDate={setCheckOutDate}
+                  adults={adults}
+                  setAdults={setAdults}
+                  childrens={childrens}
+                  setChildrens={setChildrens}
+                  roomPrice={roomData[3]?.roomPrice}
+                  roomId={roomData[3]?._id}
+                />
               </div>
               <div className="text-center">
                 {/* <Link to={`/room/`}> */}

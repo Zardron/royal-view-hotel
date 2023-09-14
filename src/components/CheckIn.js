@@ -7,23 +7,21 @@ import "../datepicker.css";
 // Icons
 import { BsCalendar } from "react-icons/bs";
 
-const CheckIn = () => {
-  const [startDate, setStartDate] = useState(false);
-
+const CheckIn = ({ checkInDate, setCheckInDate }) => {
   return (
     <div className="relative flex items-center justify-end h-full cursor-pointer">
       {/* Icon */}
-      <div className="absolute z-10 pr-8 ">
+      <div className="absolute z-1 pr-8 ">
         <div>
           <BsCalendar className="text-accent text-base" />
         </div>
       </div>
       <DatePicker
         className="w-full h-full cursor-pointer font-tertiary tracking-[3px]"
-        selected={startDate}
+        selected={checkInDate}
         placeholderText="Check In"
         minDate={new Date()}
-        onChange={(date) => setStartDate(date)}
+        onChange={(date) => setCheckInDate(date)}
       />
     </div>
   );

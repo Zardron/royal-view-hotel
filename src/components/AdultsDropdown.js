@@ -13,9 +13,7 @@ const lis = [
   { name: "4 Adults" },
 ];
 
-const AdultsDropdown = () => {
-  const { adults, setAdults } = useContext(RoomContext);
-
+const AdultsDropdown = ({ adults, setAdults }) => {
   return (
     <Menu as="div" className="w-full h-full bg-white relative">
       {/* Button */}

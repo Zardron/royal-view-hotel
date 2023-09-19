@@ -16,12 +16,41 @@ import axios from "axios";
 import { TbBrandBooking } from "react-icons/tb";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AiFillCloseSquare } from "react-icons/ai";
+import Modal from "react-modal";
+
+const customStyles = {
+  content: {
+    width: 450,
+    maxHeight: 550,
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    zIndex: 99,
+  },
+};
 
 const Booking = () => {
   const [bookingRef, setBookingRef] = useState("");
   const [bookingDetails, setBookingDetails] = useState([]);
   const [showData, setShowData] = useState(false);
   const [roomDetails, setRoomDetails] = useState([]);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [bookingId, setBookingId] = useState("false");
+
+  const openModal = (id) => {
+    setIsOpen(true);
+    setBookingId(id);
+  };
+
+  function afterOpenModal() {}
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   useEffect(() => {
     setShowData(false);
@@ -41,14 +70,14 @@ const Booking = () => {
       });
     } else {
       axios
-        .post("http://localhost:5000/api/room/booking-details", {
+        .post("https://rvh-backend.vercel.app/api/room/booking-details", {
           bookingRef: bookingRef,
         })
         .then((result) => {
           setBookingDetails(result.data);
           axios
             .get(
-              `http://localhost:5000/api/room/room-details/${result?.data?.roomId}`
+              `https://rvh-backend.vercel.app/api/room/room-details/${result?.data?.roomId}`
             )
             .then((res) => {
               setRoomDetails(res.data);
@@ -78,7 +107,25 @@ const Booking = () => {
     setActiveIndex(activeIndex);
   };
 
-  console.log(new Date().toLocaleDateString("en-GB"));
+  const handleCancelBooking = () => {
+    axios
+      .post(`https://rvh-backend.vercel.app/api/room/cancel-booking`, {
+        id: bookingId,
+      })
+      .then((res) => {
+        toast.success("Your Booking has been Cancelled", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        closeModal();
+      });
+  };
 
   return (
     <section>
@@ -156,6 +203,27 @@ const Booking = () => {
                   {/* BOOKING DETAILS */}
                   <h3 className="h3 text-3xl font-tertiary">Booking Details</h3>
                   <table>
+                    <tr>
+                      <td className="pr-4">
+                        {" "}
+                        <p className="text-lg font-tertiary font-semibold">
+                          Booking Status:
+                        </p>
+                      </td>
+                      <td>
+                        {" "}
+                        <p
+                          className={`text-lg font-tertiary font-bold ${
+                            bookingDetails?.bookingStatus === "Cancelled"
+                              ? "text-red-400"
+                              : ""
+                          }`}
+                        >
+                          {bookingDetails?.bookingStatus}
+                        </p>
+                      </td>
+                    </tr>
+
                     <tr>
                       <td className="pr-4">
                         {" "}
@@ -302,14 +370,19 @@ const Booking = () => {
                       bookingDetails?.checkOutDate ===
                       new Date().toLocaleDateString("en-GB")
                         ? "bg-gray-400 cursor-not-allowed hover:bg-gray-400 hover:text-white"
-                        : ""
+                        : bookingDetails?.bookingStatus === "Cancelled"
+                        ? "bg-gray-400 cursor-not-allowed hover:bg-gray-400 hover:text-white"
+                        : false
                     }`}
                     disabled={
                       bookingDetails?.checkOutDate ===
                       new Date().toLocaleDateString("en-GB")
                         ? true
+                        : bookingDetails?.bookingStatus === "Cancelled"
+                        ? true
                         : false
                     }
+                    onClick={() => openModal(bookingDetails?._id)}
                   >
                     Cancel Booking
                   </button>
@@ -406,6 +479,62 @@ const Booking = () => {
           </div>
         )}
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            borderBottom: "2px solid gray",
+            paddingBottom: "10px",
+          }}
+        >
+          <div className="text-gray-500 font-extrabold text-xl uppercase">
+            Confirmation Message
+          </div>
+          <button onClick={closeModal}>
+            <AiFillCloseSquare color={"red"} />
+          </button>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            paddingTop: "10px",
+            paddingBottom: "15px",
+            borderBottom: "2px solid gray",
+          }}
+        >
+          <p className="text-lg font-tertiary font-semibold">
+            Are you sure you want to cancel your booking?
+          </p>
+        </div>
+
+        <div className="flex flex-row items-center gap-10 mt-4">
+          <button
+            className={`btn btn-primary bg-red-500/50 hover:bg-red-500 py-2`}
+            onClick={() => closeModal()}
+          >
+            Cancel
+          </button>
+          <button
+            className={`btn btn-primary py-2`}
+            onClick={() => handleCancelBooking()}
+          >
+            Confirm
+          </button>
+        </div>
+      </Modal>
       <ToastContainer />
     </section>
   );

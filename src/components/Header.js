@@ -20,7 +20,8 @@ const Header = () => {
   }, []);
 
   const { i18n, t } = useTranslation(["common"]);
-  const [setSelect] = useState("US");
+  const [select, setSelect] = useState("US");
+
   const onSelect = (code) => {
     setSelect(code);
 
@@ -91,6 +92,9 @@ const Header = () => {
           </Link>
           <Link to="/our-rooms" className="hover:text-accent transition">
             {t("rooms")}
+          </Link>
+          <Link to="/booking" className="hover:text-accent transition">
+            Bookings
           </Link>
           <Link to="/gallery" className="hover:text-accent transition">
             {t("gallery")}

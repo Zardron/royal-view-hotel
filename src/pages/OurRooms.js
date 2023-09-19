@@ -129,6 +129,7 @@ const OurRooms = () => {
                   setChildrens={setChildrens}
                   roomPrice={roomData[0]?.roomPrice}
                   roomId={roomData[0]?._id}
+                  roomName={roomData[0]?.roomName}
                 />
               </div>
               <div className="text-center">
@@ -269,6 +270,7 @@ const OurRooms = () => {
                   setChildrens={setChildrens}
                   roomPrice={roomData[1]?.roomPrice}
                   roomId={roomData[1]?._id}
+                  roomName={roomData[1]?.roomName}
                 />
               </div>
               <div className="text-center">
@@ -412,6 +414,7 @@ const OurRooms = () => {
                   setChildrens={setChildrens}
                   roomPrice={roomData[2]?.roomPrice}
                   roomId={roomData[2]?._id}
+                  roomName={roomData[2]?.roomName}
                 />
               </div>
               <div className="text-center">
@@ -547,6 +550,7 @@ const OurRooms = () => {
                   setChildrens={setChildrens}
                   roomPrice={roomData[3]?.roomPrice}
                   roomId={roomData[3]?._id}
+                  roomName={roomData[3]?.roomName}
                 />
               </div>
               <div className="text-center">

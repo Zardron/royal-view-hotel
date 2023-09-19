@@ -13,6 +13,7 @@ import Gallery from "./pages/Gallery";
 import SubFooter from "./components/SubFooter";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Booking from "./pages/Booking";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/room/:id" element={<RoomDetails />} />
         <Route path="/our-rooms" element={<OurRooms />} />
+        <Route path="/booking" element={<Booking />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

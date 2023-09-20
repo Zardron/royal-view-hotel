@@ -18,7 +18,7 @@ const SubFooter = () => {
           />
           <iframe
             src="https://www.google.com/maps/embed?pb=!4v1694445732870!6m8!1m7!1sWKCnv7_9_0NJ8PLEfM04UQ!2m2!1d25.78172575648842!2d55.96704798456139!3f96.18115797657521!4f15.683076439516356!5f0.7820865974627469"
-            className="w-[460px] h-[350px] mt-2 lg:mt-0 lg:w-[555px]"
+            className="w-full h-[350px] mt-2 lg:mt-0 lg:w-[555px]"
             allowfullscreen=""
             loading="lazy"
             title="aw"

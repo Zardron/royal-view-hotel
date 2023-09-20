@@ -121,7 +121,7 @@ const BookForm = ({
     e.preventDefault();
 
     await axios
-      .post("http://localhost:5000/api/room/booking", {
+      .post("https://rvh-backend.vercel.app/api/room/booking", {
         bookingRef: bookingref,
         roomId: roomId,
         roomName: roomName,

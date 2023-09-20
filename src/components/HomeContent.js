@@ -4,9 +4,9 @@ import { styled } from "styled-components";
 const HomeContent = () => {
   return (
     <>
-      <div className="bg-[#eceff3]">
+      <div className="bg-[#2c879c21]">
         <Container>
-          <div className="grid grid-cols-2 gap-6 mx-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-2 my-4 lg:my-0">
             <div>
               <img
                 className="rounded-[50px] w-full object-cove"
@@ -19,7 +19,7 @@ const HomeContent = () => {
               <h3 className="h3 font-tertiary font-semibold">
                 WELCOME TO ROYAL VIEW HOTEL
               </h3>
-              <h1 className="text-xl font-tertiary mt-10 text-justify">
+              <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
                 Discover a world of elegance and relaxation at Royal View Hotel.
                 With our exceptional services and state-of-the-art facilities,
                 we ensure a memorable stay for our guests. Book your stay now
@@ -31,11 +31,11 @@ const HomeContent = () => {
       </div>
 
       <Container>
-        <div className="grid grid-cols-2 gap-6 mx-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-2  my-4 lg:my-0">
           <div className="flex flex-col justify-center">
             <h3 className="h3 font-tertiary font-semibold">NOT TO MENTION</h3>
             <h3 className="h3 font-tertiary font-semibold">ROOMS & SUITES</h3>
-            <h1 className="text-xl font-tertiary mt-10 text-justify">
+            <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
               Indulge in the comfort and elegance of our spacious rooms and
               suites, designed to provide a relaxing stay for our guests. Each
               room is tastefully decorated with modern amenities and offers
@@ -52,9 +52,9 @@ const HomeContent = () => {
         </div>
       </Container>
 
-      <div className="bg-[#eceff3]">
+      <div className="bg-[#2c879c21]">
         <Container>
-          <div className="grid grid-cols-2 gap-6 mx-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-2  my-4 lg:my-0">
             <div>
               <img
                 className="rounded-[50px] w-full object-cove"
@@ -69,7 +69,7 @@ const HomeContent = () => {
               <h3 className="h3 font-tertiary font-semibold">
                 NAHAWAND RESTAURANT AT THE ROYAL VIEW HOTEL
               </h3>
-              <h1 className="text-xl font-tertiary mt-10 text-justify">
+              <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
                 Savor the finest flavors at Nahawand Restaurant, which offers a
                 varied menu of international and local cuisine. Our talented
                 chefs use only the freshest ingredients to create culinary
@@ -81,13 +81,13 @@ const HomeContent = () => {
       </div>
 
       <Container>
-        <div className="grid grid-cols-2 gap-6 mx-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-2  my-4 lg:my-0">
           <div className="flex flex-col justify-center">
             <h3 className="h3 font-tertiary font-semibold">
               HOTEL SWIMMING POOL
             </h3>
             <h3 className="h3 font-tertiary font-semibold">ROOMS & SUITES</h3>
-            <h1 className="text-xl font-tertiary mt-10 text-justify">
+            <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
               The Royal View Hotel boasts a luxurious pool for its guests to
               enjoy during their stay. Located on the premises, the pool offers
               a serene and refreshing oasis away from the bustling city. With
@@ -113,9 +113,9 @@ const HomeContent = () => {
         </div>
       </Container>
 
-      <div className="bg-[#eceff3]">
+      <div className="bg-[#2c879c21]">
         <Container>
-          <div className="grid grid-cols-2 gap-6 mx-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-2  my-4 lg:my-0">
             <div>
               <img
                 className="rounded-[50px] object-cover"
@@ -128,7 +128,7 @@ const HomeContent = () => {
                 Royal Beauty Salon
               </h3>
 
-              <h1 className="text-xl font-tertiary mt-10 text-justify">
+              <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
                 The Royal View Hotel offers a small salon where guests can
                 indulge in various hairstyling services. Located within the
                 hotel premises, this salon provides a convenient and relaxing
@@ -147,13 +147,13 @@ const HomeContent = () => {
       </div>
 
       <Container>
-        <div className="grid grid-cols-2 gap-6 mx-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-2  my-4 lg:my-0">
           <div className="flex flex-col justify-center">
             <h3 className="h3 font-tertiary font-semibold uppercase">
               Shen's Massage Center
             </h3>
             <h3 className="h3 font-tertiary font-semibold">ROOMS & SUITES</h3>
-            <h1 className="text-xl font-tertiary mt-10 text-justify">
+            <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
               Shen's Massage at Royal View Hotel offers a serene and tranquil
               environment for relaxation and rejuvenation. With highly trained
               therapists and a wide range of therapeutic treatments, guests can

@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <section>
       <ScrollToTop />
-      <div className="bg-gallery bg-cover  bg-no-repeat h-[560px] relative flex justify-center items-center">
+      <div className="bg-gallery bg-cover  bg-no-repeat h-[300px] lg:h-[560px] relative flex justify-center items-center">
         {/* Overlay */}
         <div className="absolute w-full h-full bg-black/70"></div>
         {/* Title */}
@@ -20,38 +20,38 @@ const Contact = () => {
 
         <div className="grid grid-cols-2 mb-10">
           <div className="flex flex-col">
-            <h1 className="text-black font-tertiary font-normal text-4xl lg:mb-2 lg:text-[24px]">
+            <h1 className="text-black font-tertiary font-normal text-lg pt-2 lg:pt-0 lg:mb-2 lg:text-[24px]">
               Get in touch with our friendly team
             </h1>
 
-            <h1 className=" font-tertiary font-semibold text-4xl lg:text-[32px] text-[#48aecb]">
+            <h1 className=" font-tertiary font-semibold text-lg pt-2 lg:pt-0 lg:text-[32px] text-[#48aecb]">
               Email
             </h1>
-            <h1 className="text-black font-tertiary font-normal text-4xl lg:mb-2 lg:text-[20px]">
+            <h1 className="text-black font-tertiary font-normal text-md pt-2 lg:pt-0 lg:mb-2 lg:text-[20px]">
               info@royalviewhotel.ae
             </h1>
 
-            <h1 className=" font-tertiary font-semibold text-4xl lg:text-[32px] text-[#48aecb]">
+            <h1 className=" font-tertiary font-semibold text-lg pt-2 lg:pt-0 lg:text-[32px] text-[#48aecb]">
               Phone
             </h1>
-            <h1 className="text-black font-tertiary font-normal text-4xl lg:mb-2 lg:text-[20px]">
+            <h1 className="text-black font-tertiary font-normal text-md pt-2 lg:pt-0 lg:mb-2 lg:text-[20px]">
               +971 7 2277 717
             </h1>
 
-            <h1 className=" font-tertiary font-semibold text-4xl lg:text-[32px] text-[#48aecb]">
+            <h1 className=" font-tertiary font-semibold text-lg pt-2 lg:pt-0 lg:text-[32px] text-[#48aecb]">
               Mobile
             </h1>
-            <h1 className="text-black font-tertiary font-normal text-4xl lg:mb-2 lg:text-[20px]">
+            <h1 className="text-black font-tertiary font-normal text-md pt-2 lg:pt-0 lg:mb-2 lg:text-[20px]">
               +971 54 777 1704
             </h1>
 
-            <h1 className=" font-tertiary font-semibold text-4xl lg:text-[32px] text-[#48aecb]">
+            <h1 className=" font-tertiary font-semibold text-lg pt-2 lg:pt-0 lg:text-[32px] text-[#48aecb]">
               Address
             </h1>
-            <h1 className="text-black font-tertiary font-normal text-4xl lg:text-[20px]">
+            <h1 className="text-black font-tertiary font-normal text-md pt-2 lg:pt-0 lg:text-[20px]">
               Ras Al Khaimah
             </h1>
-            <h1 className="text-black font-tertiary font-normal text-4xl lg:mb-2 lg:text-[20px]">
+            <h1 className="text-black font-tertiary font-normal text-md pt-2 lg:pt-0 lg:mb-2 lg:text-[20px]">
               Royal View Hotel
             </h1>
           </div>
@@ -117,7 +117,7 @@ const Contact = () => {
             </div>
 
             <button className="bg-[#48aecb] border-2 border-[#a07d48] px-4 py-2 rounded-lg text-white hover:bg-[#a07d48]">
-              Contact us on Whatsapp
+              Submit
             </button>
           </div>
         </div>

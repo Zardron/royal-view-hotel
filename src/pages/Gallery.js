@@ -102,7 +102,7 @@ const OurRooms = () => {
   return (
     <section>
       <ScrollToTop />
-      <div className="bg-gallery bg-cover  bg-no-repeat h-[560px] relative flex justify-center items-center">
+      <div className="bg-gallery bg-cover  bg-no-repeat h-[300px] lg:h-[560px] relative flex justify-center items-center">
         {/* Overlay */}
         <div className="absolute w-full h-full bg-black/70"></div>
         {/* Title */}

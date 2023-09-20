@@ -132,7 +132,7 @@ const Booking = () => {
       {/* ScrollToTop */}
       <ScrollToTop />
       {/* Banner */}{" "}
-      <div className="bg-room bg-cover bg-center h-[560px] relative flex justify-center items-center">
+      <div className="bg-room bg-cover bg-center h-[300px] lg:h-[560px] relative flex justify-center items-center">
         {/* Overlay */}
         <div className="absolute w-full h-full bg-black/70"></div>
         {/* Title */}
@@ -143,8 +143,8 @@ const Booking = () => {
           Check Booking
         </h2>
 
-        <div class="relative mb-6 flex flex-row items-center">
-          <div className=" bg-gray-50 w-1/4 border p-2 border-gray-600 flex flex-row items-center">
+        <div class="relative mb-6 flex flex-col lg:flex-row items-center">
+          <div className=" bg-gray-50 w-full lg:w-1/4 border p-2 border-gray-600 flex flex-row items-center">
             <TbBrandBooking /> <span>Booking Reference:</span>
           </div>
           <input

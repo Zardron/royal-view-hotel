@@ -70,7 +70,7 @@ const OurRooms = () => {
       {/* ScrollToTop */}
       <ScrollToTop />
       {/* Banner */}{" "}
-      <div className="bg-room bg-cover bg-center h-[560px] relative flex justify-center items-center">
+      <div className="bg-room bg-cover bg-center h-[300px] lg:h-[560px] relative flex justify-center items-center">
         {/* Overlay */}
         <div className="absolute w-full h-full bg-black/70"></div>
         {/* Title */}

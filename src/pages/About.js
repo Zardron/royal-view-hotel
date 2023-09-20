@@ -39,7 +39,7 @@ const About = () => {
             Our Principles
           </h1>
 
-          <div className="grid grid-cols-3 gap-12 p-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 p-4">
             <div className="bg-white shadow-2xl p-4">
               <h1 className="text-black font-tertiary font-normal leading-[32px] text-4xl text-center lg:mb-6 lg:text-[32px]">
                 Exceptional Service

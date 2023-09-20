@@ -13,8 +13,8 @@ import { AiOutlineMail } from "react-icons/ai";
 const Footer = () => {
   return (
     <footer className="bg-primary">
-      <div className="container mx-auto text-white flex flex-row justify-between items-center py-4">
-        <div className="flex flex-col">
+      <div className="container mx-auto text-white flex flex-col lg:flex-row justify-between items-center py-4">
+        <div className="flex flex-col pb-4 lg:pb-0">
           <a href="/">
             <img src={LogoDark} className="w-[220px]" alt="" />
           </a>
@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center border-t border-white/50 w-full py-2 lg:border-t-0 lg:border-white/0 lg:py-0">
           <h3 className="h3 font-tertiary font-semibold pb-1">
             GET IN TOUCH WITH US
           </h3>
@@ -43,7 +43,7 @@ const Footer = () => {
           </h3>
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center border-t border-white/50 w-full pt-2 lg:border-t-0 lg:border-white/0 lg:pt-0 lg:w-auto lg:items-start">
           <h3 className="h3 font-tertiary font-semibold">CONTACTS</h3>
           <div className="flex flex-row items-center gap-x-2 pb-1">
             <BsTelephone />
@@ -60,7 +60,7 @@ const Footer = () => {
         </div>
       </div>
       <div className=" text-white flex justify-center items-center border-t border-white/50 py-2">
-        Copyright &copy; 2023. All rights reserved.
+        Copyright &copy; Eng.Hassan 2023. All rights reserved.
       </div>
     </footer>
   );

@@ -100,7 +100,7 @@ const Header = () => {
           <nav
             className={`${
               header ? "text-primary" : "text-white"
-            } flex gap-x-4 mb-4 lg:mb-0 font-tertiary tracking-[3px] text-[15px] font-regular items-center uppercase lg:gap-x-8`}
+            } flex gap-x-4 mb-4 lg:mb-0 arabic-text text-[20px] font-regular items-center uppercase lg:gap-x-6`}
           >
             <Link to="/" className="hover:text-accent transition font">
               {t("home")}
@@ -109,7 +109,7 @@ const Header = () => {
               {t("rooms")}
             </Link>
             <Link to="/booking" className="hover:text-accent transition">
-              Bookings
+              {t("bookings")}
             </Link>
             <Link to="/gallery" className="hover:text-accent transition">
               {t("gallery")}
@@ -178,7 +178,7 @@ const Header = () => {
 
         {showMenu && (
           <nav
-            className={`transition-all duration-500 flex flex-col items-center text-primary gap-x-4 lg:mb-0 font-tertiary tracking-[3px] text-[15px] font-regular uppercase border-t border-gray-500`}
+            className={`transition-all duration-500 flex flex-col items-center text-primary gap-x-4 lg:mb-0 font-tertiary text-[15px] font-regular uppercase border-t border-gray-500`}
           >
             <Link to="/" className="hover:text-accent transition py-1">
               {t("home")}

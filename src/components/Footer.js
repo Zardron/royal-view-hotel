@@ -11,6 +11,10 @@ import { FaMobileAlt } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 
 const Footer = () => {
+  const handleRedirect = (url) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <footer className="bg-primary">
       <div className="container mx-auto text-white flex flex-col lg:flex-row justify-between items-center py-4">
@@ -20,13 +24,34 @@ const Footer = () => {
           </a>
           <div className="flex flex-row items-center justify-center gap-10 pt-4">
             <a href="/">
-              <BsInstagram size={24} />
+              <BsInstagram
+                size={24}
+                onClick={() =>
+                  handleRedirect(
+                    "https://www.instagram.com/royalviewhotel.ae/?igshid=NTc4MTIwNjQ2YQ=="
+                  )
+                }
+              />
             </a>
             <a href="/">
-              <BsWhatsapp size={24} />
+              <BsWhatsapp
+                size={24}
+                onClick={() =>
+                  handleRedirect(
+                    "https://api.whatsapp.com/send/?phone=%2B971547771704&text&type=phone_number&app_absent=0"
+                  )
+                }
+              />
             </a>
             <a href="/">
-              <BsFacebook size={24} />
+              <BsFacebook
+                size={24}
+                onClick={() =>
+                  handleRedirect(
+                    "https://www.facebook.com/profile.php?id=100048811285939&mibextid=LQQJ4d"
+                  )
+                }
+              />
             </a>
           </div>
         </div>
@@ -35,7 +60,14 @@ const Footer = () => {
           <h3 className="h3 font-tertiary font-semibold pb-1">
             GET IN TOUCH WITH US
           </h3>
-          <button className="border-2 border-white px-4 py-2 rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-black">
+          <button
+            onClick={() =>
+              handleRedirect(
+                "https://api.whatsapp.com/send/?phone=%2B971547771704&text&type=phone_number&app_absent=0"
+              )
+            }
+            className="border-2 border-white px-4 py-2 rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-black"
+          >
             Contact us on Whatsapp
           </button>
           <h3 className="h1 font-tertiary font-thin pt-3">

@@ -13,11 +13,11 @@ const CheckIn = ({ checkInDate, setCheckInDate }) => {
       {/* Icon */}
       <div className="absolute z-1 pr-8 ">
         <div>
-          <BsCalendar className="text-accent text-base" />
+          <BsCalendar className="text-accent font-tertiary text-base" />
         </div>
       </div>
       <DatePicker
-        className="w-full h-full cursor-pointer font-tertiary tracking-[3px]"
+        className="w-full h-full cursor-pointer font-tertiary tracking-[3px] placeholder:font-tertiary"
         selected={checkInDate}
         placeholderText="Check In"
         minDate={new Date()}

@@ -1,10 +1,13 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { styled } from "styled-components";
 
 const HomeContent = () => {
+  const { t } = useTranslation(["common"]);
+
   return (
     <>
-      <div className="bg-[#2c879c21]">
+      <div className="bg-[#abb1b347]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-2 my-4 lg:my-0">
             <div>
@@ -15,15 +18,27 @@ const HomeContent = () => {
               />
             </div>
             <div className="flex flex-col justify-center">
-              <h3 className="h3 font-tertiary font-semibold">FIRST OF ALL</h3>
-              <h3 className="h3 font-tertiary font-semibold">
-                WELCOME TO ROYAL VIEW HOTEL
+              <h3
+                className={`h3 font-tertiary font-semibold ${
+                  localStorage.getItem("i18nextLng") === "en"
+                    ? ""
+                    : localStorage.getItem("i18nextLng") === "ru"
+                    ? ""
+                    : "text-right"
+                }`}
+              >
+                {t("contentTitle1")}
               </h3>
-              <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
-                Discover a world of elegance and relaxation at Royal View Hotel.
-                With our exceptional services and state-of-the-art facilities,
-                we ensure a memorable stay for our guests. Book your stay now
-                and indulge in the ultimate hotel experience.
+              <h1
+                className={`text-xl font-tertiary lg:mt-10   ${
+                  localStorage.getItem("i18nextLng") === "en"
+                    ? "text-justify"
+                    : localStorage.getItem("i18nextLng") === "ru"
+                    ? ""
+                    : "text-right"
+                }`}
+              >
+                {t("contentDesc1")}
               </h1>
             </div>
           </div>
@@ -33,13 +48,27 @@ const HomeContent = () => {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-2  my-4 lg:my-0">
           <div className="flex flex-col justify-center">
-            <h3 className="h3 font-tertiary font-semibold">NOT TO MENTION</h3>
-            <h3 className="h3 font-tertiary font-semibold">ROOMS & SUITES</h3>
-            <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
-              Indulge in the comfort and elegance of our spacious rooms and
-              suites, designed to provide a relaxing stay for our guests. Each
-              room is tastefully decorated with modern amenities and offers
-              breathtaking views of the city skyline.
+            <h3
+              className={`h3 font-tertiary font-semibold ${
+                localStorage.getItem("i18nextLng") === "en"
+                  ? ""
+                  : localStorage.getItem("i18nextLng") === "ru"
+                  ? ""
+                  : "text-right"
+              }`}
+            >
+              {t("contentTitle2")}
+            </h3>
+            <h1
+              className={`text-xl font-tertiary lg:mt-10   ${
+                localStorage.getItem("i18nextLng") === "en"
+                  ? "text-justify"
+                  : localStorage.getItem("i18nextLng") === "ru"
+                  ? ""
+                  : "text-right"
+              }`}
+            >
+              {t("contentDesc2")}
             </h1>
           </div>
           <div>
@@ -52,7 +81,7 @@ const HomeContent = () => {
         </div>
       </Container>
 
-      <div className="bg-[#2c879c21]">
+      <div className="bg-[#abb1b347]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-2  my-4 lg:my-0">
             <div>
@@ -63,17 +92,27 @@ const HomeContent = () => {
               />
             </div>
             <div className="flex flex-col justify-center">
-              <h3 className="h3 font-tertiary font-semibold">
-                AND LET'S NOT FORGET
+              <h3
+                className={`h3 font-tertiary font-semibold ${
+                  localStorage.getItem("i18nextLng") === "en"
+                    ? ""
+                    : localStorage.getItem("i18nextLng") === "ru"
+                    ? ""
+                    : "text-right"
+                }`}
+              >
+                {t("contentTitle3")}
               </h3>
-              <h3 className="h3 font-tertiary font-semibold">
-                NAHAWAND RESTAURANT AT THE ROYAL VIEW HOTEL
-              </h3>
-              <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
-                Savor the finest flavors at Nahawand Restaurant, which offers a
-                varied menu of international and local cuisine. Our talented
-                chefs use only the freshest ingredients to create culinary
-                masterpieces that suit your mood and delight
+              <h1
+                className={`text-xl font-tertiary lg:mt-10   ${
+                  localStorage.getItem("i18nextLng") === "en"
+                    ? "text-justify"
+                    : localStorage.getItem("i18nextLng") === "ru"
+                    ? ""
+                    : "text-right"
+                }`}
+              >
+                {t("contentDesc3")}
               </h1>
             </div>
           </div>
@@ -83,24 +122,27 @@ const HomeContent = () => {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-2  my-4 lg:my-0">
           <div className="flex flex-col justify-center">
-            <h3 className="h3 font-tertiary font-semibold">
-              HOTEL SWIMMING POOL
+            <h3
+              className={`h3 font-tertiary font-semibold ${
+                localStorage.getItem("i18nextLng") === "en"
+                  ? ""
+                  : localStorage.getItem("i18nextLng") === "ru"
+                  ? ""
+                  : "text-right"
+              }`}
+            >
+              {t("contentTitle4")}
             </h3>
-            <h3 className="h3 font-tertiary font-semibold">ROOMS & SUITES</h3>
-            <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
-              The Royal View Hotel boasts a luxurious pool for its guests to
-              enjoy during their stay. Located on the premises, the pool offers
-              a serene and refreshing oasis away from the bustling city. With
-              its crystal-clear waters and comfortable lounge chairs, it's the
-              perfect spot to unwind and soak up the sun. Whether you're looking
-              to take a leisurely swim or simply relax by the poolside, this
-              inviting amenity provides a peaceful retreat. The pool area is
-              meticulously maintained, ensuring a clean and inviting environment
-              for all guests to enjoy. Additionally, the friendly and attentive
-              staff are always on hand to cater to your needs, whether it's
-              offering fresh towels or serving refreshing drinks poolside.
-              Immerse yourself in the tranquility of the pool in Royal View
-              Hotel and experience a true haven of relaxation.
+            <h1
+              className={`text-xl font-tertiary lg:mt-10   ${
+                localStorage.getItem("i18nextLng") === "en"
+                  ? "text-justify"
+                  : localStorage.getItem("i18nextLng") === "ru"
+                  ? ""
+                  : "text-right"
+              }`}
+            >
+              {t("contentDesc4")}
             </h1>
           </div>
           <div>
@@ -113,7 +155,7 @@ const HomeContent = () => {
         </div>
       </Container>
 
-      <div className="bg-[#2c879c21]">
+      {/* <div className="bg-[#abb1b347]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-2  my-4 lg:my-0">
             <div>
@@ -127,7 +169,6 @@ const HomeContent = () => {
               <h3 className="h3 font-tertiary font-semibold uppercase">
                 Royal Beauty Salon
               </h3>
-
               <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
                 The Royal View Hotel offers a small salon where guests can
                 indulge in various hairstyling services. Located within the
@@ -152,7 +193,6 @@ const HomeContent = () => {
             <h3 className="h3 font-tertiary font-semibold uppercase">
               Shen's Massage Center
             </h3>
-            <h3 className="h3 font-tertiary font-semibold">ROOMS & SUITES</h3>
             <h1 className="text-xl font-tertiary lg:mt-10 text-justify">
               Shen's Massage at Royal View Hotel offers a serene and tranquil
               environment for relaxation and rejuvenation. With highly trained
@@ -176,7 +216,7 @@ const HomeContent = () => {
             />
           </div>
         </div>
-      </Container>
+      </Container> */}
     </>
   );
 };

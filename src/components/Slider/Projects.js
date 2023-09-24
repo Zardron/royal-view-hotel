@@ -8,10 +8,18 @@ const Projects = () => {
 
   return (
     <Container id="project">
-      <h1 className="text-accent font-tertiary text-4xl lg:mb-6 lg:text-[68px] font-bold">
+      <h1 className="text-[#2dadc9] font-tertiary text-4xl lg:mb-6 lg:text-[68px] font-bold">
         {t("welcometo")} <span className="green ">{t("royalviewhotel")}</span>
       </h1>
-      <p className="font-tertiary text-lg lg:text-[20px]">{t("aboutrvh")}</p>
+      <p
+        className={`font-tertiary text-lg lg:text-[20px] ${
+          localStorage.getItem("i18nextLng") === "en"
+            ? "text-justify"
+            : "text-right"
+        }`}
+      >
+        {t("aboutrvh")}
+      </p>
       <SliderComp />
     </Container>
   );
@@ -34,7 +42,6 @@ const Container = styled.div`
   p {
     margin: 0 auto;
     padding: 1rem 0;
-    text-align: justify;
     @media (max-width: 500px) {
       width: 90%;
     }

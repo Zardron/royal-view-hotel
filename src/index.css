@@ -25,10 +25,10 @@
     @apply h-[60px];
   }
   .btn-primary {
-    @apply bg-accent hover:bg-accent-hover;
+    @apply bg-[#2dadc9] hover:bg-[#52cbe6];
   }
   .btn-secondary {
-    @apply bg-[#2dadc9] hover:bg-accent;
+    @apply bg-[#2dadc9] hover:bg-[#52cbe6c];
   }
   .btn-white {
     @apply bg-white text-[#0a0a0a];
@@ -48,7 +48,7 @@
 
 .content h2 {
   color: #fff;
-  font-size: 8em;
+  font-size: 6em;
   position: absolute;
   transform: translate(-50%, -50%);
 }
@@ -321,15 +321,18 @@ hr+h2::after {
   max-height: 180px;
   overflow: auto;
   color: black;
+  font-size: 14px !important;
+  width: 120px !important;
 }
 
 .ReactFlagsSelect-module_selectBtn__19wW7 {
+  font-size: 14px !important;
   cursor: pointer;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px;
+  padding: 5px 0px !important;
   margin-top: 3px;
   font-family: inherit;
   color: #4d4d4d;

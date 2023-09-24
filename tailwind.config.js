@@ -2,9 +2,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      primary: "Noto Sans Arabic, sans-serif",
-      secondary: "Noto Sans Arabic, sans-serif",
-      tertiary: "Proxima Nova Condensed, sans-serif",
+      primary: "'Cormorant Garamond', serif",
+      secondary: "'Cormorant Garamond', serif",
+      tertiary: "'Cormorant Garamond', serif",
     },
     container: {
       padding: {
@@ -21,7 +21,7 @@ module.exports = {
       colors: {
         primary: "#0a0a0a",
         accent: {
-          DEFAULT: "#a37d4c",
+          DEFAULT: "#2dadc9",
           hover: "#967142",
         },
       },

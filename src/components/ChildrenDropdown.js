@@ -20,7 +20,7 @@ const KidsDropdown = ({ childrens, setChildrens }) => {
       {/* Button */}
       <Menu.Button className="w-full h-full flex items-center justify-between px-8 font-tertiary tracking-[3px]">
         {childrens}
-        <BsChevronDown className="text-base text-accent-hover" />
+        <BsChevronDown className="text-base text-accent" />
       </Menu.Button>
       {/* Items */}
       <Menu.Items

@@ -30,12 +30,15 @@ const Header = () => {
 
     if (code === "US") {
       i18n.changeLanguage("en");
+      setShowMenu(false);
     }
     if (code === "AE") {
       i18n.changeLanguage("ar");
+      setShowMenu(false);
     }
     if (code === "RU") {
       i18n.changeLanguage("ru");
+      setShowMenu(false);
     }
   };
 
@@ -57,7 +60,7 @@ const Header = () => {
       >
         <div className="container mx-auto flex flex-col items-center gap-y-2 lg:flex-row lg:justify-between lg:gap-y-0">
           {/* Logo */}
-          <Link to="/">
+          <Link onClick={() => setShowMenu(false)} to="/">
             {header ? (
               <>
                 <div>
@@ -100,52 +103,131 @@ const Header = () => {
           <nav
             className={`${
               header ? "text-primary" : "text-white"
-            } flex gap-x-4 mb-4 lg:mb-0 arabic-text text-[20px] font-regular items-center uppercase lg:gap-x-6`}
+            } flex gap-x-4 mb-4 lg:mb-0 arabic-text text-[14px] font-regular items-center uppercase lg:gap-x-6`}
           >
-            <Link to="/" className="hover:text-accent transition font">
-              {t("home")}
-            </Link>
-            <Link to="/our-rooms" className="hover:text-accent transition">
-              {t("rooms")}
-            </Link>
-            <Link to="/booking" className="hover:text-accent transition">
-              {t("bookings")}
-            </Link>
-            <Link to="/gallery" className="hover:text-accent transition">
-              {t("gallery")}
-            </Link>
-            <Link to="/about" className="hover:text-accent transition">
-              {t("about")}
-            </Link>
-            <Link to="/contact" className="hover:text-accent transition">
-              {t("contact")}
-            </Link>
-            <ReactFlagsSelect
-              selected={
-                localStorage.getItem("i18nextLng") === "en"
-                  ? "US"
-                  : localStorage.getItem("i18nextLng") === "ru"
-                  ? "RU"
-                  : "AE"
-              }
-              onSelect={onSelect}
-              countries={["US", "AE", "RU"]}
-              customLabels={{
-                US: "ENGLISH",
-                AE: "ARABIC",
-                RU: "RUSSIAN",
-              }}
-              /*showSelectedLabel={showSelectedLabel}
-        selectedSize={selectedSize}
-        showOptionLabel={showOptionLabel}
-        optionsSize={optionsSize}
-        placeholder={placeholder}
-        searchable={searchable}
-        searchPlaceholder={searchPlaceholder}
-        alignOptionsToRight={alignOptionsToRight}
-        fullWidth={fullWidth}
-        disabled={disabled} */
-            />
+            {localStorage.getItem("i18nextLng") === "en" || "ru" ? (
+              <>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("home")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/our-rooms"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("rooms")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/gallery"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("gallery")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/booking"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("bookings")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/about"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("about")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/contact"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("contact")}
+                </Link>
+                <ReactFlagsSelect
+                  selected={
+                    localStorage.getItem("i18nextLng") === "en"
+                      ? "US"
+                      : localStorage.getItem("i18nextLng") === "ru"
+                      ? "RU"
+                      : "AE"
+                  }
+                  onSelect={onSelect}
+                  countries={["US", "AE", "RU"]}
+                  customLabels={{
+                    US: "ENGLISH",
+                    AE: "ARABIC",
+                    // RU: "RUSSIAN",
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <ReactFlagsSelect
+                  selected={
+                    localStorage.getItem("i18nextLng") === "en"
+                      ? "US"
+                      : localStorage.getItem("i18nextLng") === "ru"
+                      ? "RU"
+                      : "AE"
+                  }
+                  onSelect={onSelect}
+                  countries={["US", "AE", "RU"]}
+                  customLabels={{
+                    US: "ENGLISH",
+                    AE: "ARABIC",
+                    // RU: "RUSSIAN",
+                  }}
+                />
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/contact"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("contact")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/about"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("about")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/booking"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("bookings")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/gallery"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("gallery")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/our-rooms"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("rooms")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("home")}
+                </Link>
+              </>
+            )}
           </nav>
         </div>
       </header>
@@ -180,50 +262,129 @@ const Header = () => {
           <nav
             className={`transition-all duration-500 flex flex-col items-center text-primary gap-x-4 lg:mb-0 font-tertiary text-[15px] font-regular uppercase border-t border-gray-500`}
           >
-            <Link to="/" className="hover:text-accent transition py-1">
-              {t("home")}
-            </Link>
-            <Link to="/our-rooms" className="hover:text-accent transition py-1">
-              {t("rooms")}
-            </Link>
-            <Link to="/booking" className="hover:text-accent transition py-1">
-              Bookings
-            </Link>
-            <Link to="/gallery" className="hover:text-accent transition py-1">
-              {t("gallery")}
-            </Link>
-            <Link to="/about" className="hover:text-accent transition py-1">
-              {t("about")}
-            </Link>
-            <Link to="/contact" className="hover:text-accent transition py-1">
-              {t("contact")}
-            </Link>
-            <ReactFlagsSelect
-              selected={
-                localStorage.getItem("i18nextLng") === "en"
-                  ? "US"
-                  : localStorage.getItem("i18nextLng") === "ru"
-                  ? "RU"
-                  : "AE"
-              }
-              onSelect={onSelect}
-              countries={["US", "AE", "RU"]}
-              customLabels={{
-                US: "ENGLISH",
-                AE: "ARABIC",
-                RU: "RUSSIAN",
-              }}
-              /*showSelectedLabel={showSelectedLabel}
-        selectedSize={selectedSize}
-        showOptionLabel={showOptionLabel}
-        optionsSize={optionsSize}
-        placeholder={placeholder}
-        searchable={searchable}
-        searchPlaceholder={searchPlaceholder}
-        alignOptionsToRight={alignOptionsToRight}
-        fullWidth={fullWidth}
-        disabled={disabled} */
-            />
+            {localStorage.getItem("i18nextLng") === "en" || "ru" ? (
+              <>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("home")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/our-rooms"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("rooms")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/gallery"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("gallery")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/booking"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("bookings")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/about"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("about")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/contact"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("contact")}
+                </Link>
+                <ReactFlagsSelect
+                  selected={
+                    localStorage.getItem("i18nextLng") === "en"
+                      ? "US"
+                      : localStorage.getItem("i18nextLng") === "ru"
+                      ? "RU"
+                      : "AE"
+                  }
+                  onSelect={onSelect}
+                  countries={["US", "AE", "RU"]}
+                  customLabels={{
+                    US: "ENGLISH",
+                    AE: "ARABIC",
+                    RU: "RUSSIAN",
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <ReactFlagsSelect
+                  selected={
+                    localStorage.getItem("i18nextLng") === "en"
+                      ? "US"
+                      : localStorage.getItem("i18nextLng") === "ru"
+                      ? "RU"
+                      : "AE"
+                  }
+                  onSelect={onSelect}
+                  countries={["US", "AE", "RU"]}
+                  customLabels={{
+                    US: "ENGLISH",
+                    AE: "ARABIC",
+                    RU: "RUSSIAN",
+                  }}
+                />
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/contact"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("contact")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/about"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("about")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/booking"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("bookings")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/gallery"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("gallery")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/our-rooms"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("rooms")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("home")}
+                </Link>
+              </>
+            )}
           </nav>
         )}
       </header>

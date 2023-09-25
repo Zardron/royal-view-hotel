@@ -105,7 +105,68 @@ const Header = () => {
               header ? "text-primary" : "text-white"
             } flex gap-x-4 mb-4 lg:mb-0 arabic-text text-[14px] font-regular items-center uppercase lg:gap-x-6`}
           >
-            {localStorage.getItem("i18nextLng") === "en" || "ru" ? (
+            {localStorage.getItem("i18nextLng") === "en" ? (
+              <>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("home")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/our-rooms"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("rooms")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/gallery"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("gallery")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/booking"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("bookings")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/about"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("about")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/contact"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("contact")}
+                </Link>
+                <ReactFlagsSelect
+                  selected={
+                    localStorage.getItem("i18nextLng") === "en"
+                      ? "US"
+                      : localStorage.getItem("i18nextLng") === "ru"
+                      ? "RU"
+                      : "AE"
+                  }
+                  onSelect={onSelect}
+                  countries={["US", "AE", "RU"]}
+                  customLabels={{
+                    US: "ENGLISH",
+                    AE: "ARABIC",
+                    // RU: "RUSSIAN",
+                  }}
+                />
+              </>
+            ) : localStorage.getItem("i18nextLng") === "ru" ? (
               <>
                 <Link
                   onClick={() => setShowMenu(false)}
@@ -262,7 +323,68 @@ const Header = () => {
           <nav
             className={`transition-all duration-500 flex flex-col items-center text-primary gap-x-4 lg:mb-0 font-tertiary text-[15px] font-regular uppercase border-t border-gray-500`}
           >
-            {localStorage.getItem("i18nextLng") === "en" || "ru" ? (
+            {localStorage.getItem("i18nextLng") === "en" ? (
+              <>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("home")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/our-rooms"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("rooms")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/gallery"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("gallery")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/booking"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("bookings")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/about"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("about")}
+                </Link>
+                <Link
+                  onClick={() => setShowMenu(false)}
+                  to="/contact"
+                  className="hover:text-accent transition py-1"
+                >
+                  {t("contact")}
+                </Link>
+                <ReactFlagsSelect
+                  selected={
+                    localStorage.getItem("i18nextLng") === "en"
+                      ? "US"
+                      : localStorage.getItem("i18nextLng") === "ru"
+                      ? "RU"
+                      : "AE"
+                  }
+                  onSelect={onSelect}
+                  countries={["US", "AE", "RU"]}
+                  customLabels={{
+                    US: "ENGLISH",
+                    AE: "ARABIC",
+                    RU: "RUSSIAN",
+                  }}
+                />
+              </>
+            ) : localStorage.getItem("i18nextLng") === "ru" ? (
               <>
                 <Link
                   onClick={() => setShowMenu(false)}

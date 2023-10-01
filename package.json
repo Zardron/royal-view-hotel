@@ -1,5 +1,6 @@
 {
   "name": "hotel",
+  "homepage": "http://zar-portfolio.tech",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

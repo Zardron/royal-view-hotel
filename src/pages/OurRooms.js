@@ -127,22 +127,35 @@ const OurRooms = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="btn btn-primary cursor-default py-4 w-full">
-                    PRICE: {roomData[0]?.roomPrice}.00 AED PER NIGHT
-                  </button>
-                  <BookForm
-                    checkInDate={checkInDate}
-                    checkOutDate={checkOutDate}
-                    setCheckInDate={setCheckInDate}
-                    setCheckOutDate={setCheckOutDate}
-                    adults={adults}
-                    setAdults={setAdults}
-                    childrens={childrens}
-                    setChildrens={setChildrens}
-                    roomPrice={roomData[0]?.roomPrice}
-                    roomId={roomData[0]?._id}
-                    roomName={roomData[0]?.roomName}
-                  />
+
+                  {roomData[0]?.isAvailable ? (
+                    <>
+                      <button className="btn btn-primary cursor-default py-4 w-full">
+                        PRICE: {roomData[0]?.roomPrice}.00 AED PER NIGHT
+                      </button>
+
+                      <BookForm
+                        checkInDate={checkInDate}
+                        checkOutDate={checkOutDate}
+                        setCheckInDate={setCheckInDate}
+                        setCheckOutDate={setCheckOutDate}
+                        adults={adults}
+                        setAdults={setAdults}
+                        childrens={childrens}
+                        setChildrens={setChildrens}
+                        roomPrice={roomData[0]?.roomPrice}
+                        roomId={roomData[0]?._id}
+                        roomName={roomData[0]?.roomName}
+                      />
+                    </>
+                  ) : (
+                    <button
+                      className="btn btn-primary py-4 w-full cursor-not-allowed"
+                      style={{ backgroundColor: "red" }}
+                    >
+                      ROOM NOT AVAILABLE
+                    </button>
+                  )}
 
                   {details1 && (
                     <div className="block lg:hidden text-center transition-all duration-300">
@@ -381,22 +394,35 @@ const OurRooms = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="btn btn-primary cursor-default py-4 w-full">
-                    PRICE: {roomData[1]?.roomPrice}.00 AED PER NIGHT
-                  </button>
-                  <BookForm
-                    checkInDate={checkInDate}
-                    checkOutDate={checkOutDate}
-                    setCheckInDate={setCheckInDate}
-                    setCheckOutDate={setCheckOutDate}
-                    adults={adults}
-                    setAdults={setAdults}
-                    childrens={childrens}
-                    setChildrens={setChildrens}
-                    roomPrice={roomData[1]?.roomPrice}
-                    roomId={roomData[1]?._id}
-                    roomName={roomData[1]?.roomName}
-                  />
+
+                  {roomData[1]?.isAvailable ? (
+                    <>
+                      <button className="btn btn-primary cursor-default py-4 w-full">
+                        PRICE: {roomData[1]?.roomPrice}.00 AED PER NIGHT
+                      </button>
+
+                      <BookForm
+                        checkInDate={checkInDate}
+                        checkOutDate={checkOutDate}
+                        setCheckInDate={setCheckInDate}
+                        setCheckOutDate={setCheckOutDate}
+                        adults={adults}
+                        setAdults={setAdults}
+                        childrens={childrens}
+                        setChildrens={setChildrens}
+                        roomPrice={roomData[1]?.roomPrice}
+                        roomId={roomData[1]?._id}
+                        roomName={roomData[1]?.roomName}
+                      />
+                    </>
+                  ) : (
+                    <button
+                      className="btn btn-primary py-4 w-full cursor-not-allowed"
+                      style={{ backgroundColor: "red" }}
+                    >
+                      ROOM NOT AVAILABLE
+                    </button>
+                  )}
                 </div>
 
                 {details2 && (
@@ -643,22 +669,34 @@ const OurRooms = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="btn btn-primary cursor-default py-4 w-full">
-                    PRICE: {roomData[2]?.roomPrice}.00 AED PER NIGHT
-                  </button>
-                  <BookForm
-                    checkInDate={checkInDate}
-                    checkOutDate={checkOutDate}
-                    setCheckInDate={setCheckInDate}
-                    setCheckOutDate={setCheckOutDate}
-                    adults={adults}
-                    setAdults={setAdults}
-                    childrens={childrens}
-                    setChildrens={setChildrens}
-                    roomPrice={roomData[2]?.roomPrice}
-                    roomId={roomData[2]?._id}
-                    roomName={roomData[2]?.roomName}
-                  />
+                  {roomData[2]?.isAvailable ? (
+                    <>
+                      <button className="btn btn-primary cursor-default py-4 w-full">
+                        PRICE: {roomData[2]?.roomPrice}.00 AED PER NIGHT
+                      </button>
+
+                      <BookForm
+                        checkInDate={checkInDate}
+                        checkOutDate={checkOutDate}
+                        setCheckInDate={setCheckInDate}
+                        setCheckOutDate={setCheckOutDate}
+                        adults={adults}
+                        setAdults={setAdults}
+                        childrens={childrens}
+                        setChildrens={setChildrens}
+                        roomPrice={roomData[2]?.roomPrice}
+                        roomId={roomData[2]?._id}
+                        roomName={roomData[2]?.roomName}
+                      />
+                    </>
+                  ) : (
+                    <button
+                      className="btn btn-primary py-4 w-full cursor-not-allowed"
+                      style={{ backgroundColor: "red" }}
+                    >
+                      ROOM NOT AVAILABLE
+                    </button>
+                  )}
                 </div>
                 <div className="hidden lg:block text-center">
                   {/* <Link to={`/room/`}> */}
@@ -749,13 +787,6 @@ const OurRooms = () => {
                   </div>
                   {/* </Link> */}
                 </div>
-
-                <button
-                  className={`block lg:hidden w-full btn btn-primary py-4 mt-2`}
-                  onClick={() => setDetails3(!details3)}
-                >
-                  {details3 ? "HIDE DETAILS" : "VIEW MORE DETAILS"}
-                </button>
 
                 {details3 && (
                   <div className="block lg:hidden text-center">
@@ -850,6 +881,13 @@ const OurRooms = () => {
                     {/* </Link> */}
                   </div>
                 )}
+
+                <button
+                  className={`block lg:hidden w-full btn btn-primary py-4 mt-2`}
+                  onClick={() => setDetails3(!details3)}
+                >
+                  {details3 ? "HIDE DETAILS" : "VIEW MORE DETAILS"}
+                </button>
               </div>
             </div>
 
@@ -888,30 +926,35 @@ const OurRooms = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="btn btn-primary cursor-default py-4 w-full">
-                    PRICE: {roomData[3]?.roomPrice}.00 AED PER NIGHT
-                  </button>
-                  <BookForm
-                    checkInDate={checkInDate}
-                    checkOutDate={checkOutDate}
-                    setCheckInDate={setCheckInDate}
-                    setCheckOutDate={setCheckOutDate}
-                    adults={adults}
-                    setAdults={setAdults}
-                    childrens={childrens}
-                    setChildrens={setChildrens}
-                    roomPrice={roomData[3]?.roomPrice}
-                    roomId={roomData[3]?._id}
-                    roomName={roomData[3]?.roomName}
-                  />
-                </div>
+                  {roomData[3]?.isAvailable ? (
+                    <>
+                      <button className="btn btn-primary cursor-default py-4 w-full">
+                        PRICE: {roomData[3]?.roomPrice}.00 AED PER NIGHT
+                      </button>
 
-                <button
-                  className={`block lg:hidden w-full btn btn-primary py-4 mt-2`}
-                  onClick={() => setDetails4(!details4)}
-                >
-                  {details4 ? "HIDE DETAILS" : "VIEW MORE DETAILS"}
-                </button>
+                      <BookForm
+                        checkInDate={checkInDate}
+                        checkOutDate={checkOutDate}
+                        setCheckInDate={setCheckInDate}
+                        setCheckOutDate={setCheckOutDate}
+                        adults={adults}
+                        setAdults={setAdults}
+                        childrens={childrens}
+                        setChildrens={setChildrens}
+                        roomPrice={roomData[3]?.roomPrice}
+                        roomId={roomData[3]?._id}
+                        roomName={roomData[3]?.roomName}
+                      />
+                    </>
+                  ) : (
+                    <button
+                      className="btn btn-primary py-4 w-full cursor-not-allowed"
+                      style={{ backgroundColor: "red" }}
+                    >
+                      ROOM NOT AVAILABLE
+                    </button>
+                  )}
+                </div>
 
                 {details4 && (
                   <div className="block lg:hidden text-center">
@@ -1007,6 +1050,13 @@ const OurRooms = () => {
                     {/* </Link> */}
                   </div>
                 )}
+
+                <button
+                  className={`block lg:hidden w-full btn btn-primary py-4 mt-2`}
+                  onClick={() => setDetails4(!details4)}
+                >
+                  {details4 ? "HIDE DETAILS" : "VIEW MORE DETAILS"}
+                </button>
 
                 <div className="hidden lg:block text-center">
                   {/* <Link to={`/room/`}> */}
